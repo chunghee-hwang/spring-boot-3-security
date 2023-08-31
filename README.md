@@ -61,7 +61,7 @@
          400 Bad Request
          {
            "errorType": "Bad Request",
-           "msg": "에러 발생"
+           "msg": "AuthenticationException. User already Exists"
          }
          ```
 

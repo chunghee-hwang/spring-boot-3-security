@@ -1,5 +1,7 @@
 package com.chung.security.demo.service;
 
+import com.chung.security.demo.common.Constants;
+import com.chung.security.demo.common.exception.CustomException;
 import com.chung.security.demo.dto.AuthenticationRequest;
 import com.chung.security.demo.dto.AuthenticationResponse;
 import com.chung.security.demo.dto.RegisterRequest;
@@ -7,6 +9,7 @@ import com.chung.security.demo.entity.Role;
 import com.chung.security.demo.entity.User;
 import com.chung.security.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,7 +25,7 @@ public class AuthenticationService{
     public AuthenticationResponse register(RegisterRequest request) throws Exception {
         User prevUser = userRepository.findByEmail(request.getEmail()).orElseGet(() -> null);
         if (prevUser != null) {
-            throw new Exception("User already exists");
+            throw new CustomException(Constants.ExceptionType.AUTHENTICATION, HttpStatus.BAD_REQUEST, "User already Exists");
         }
         // 회원가입을 위해 유저를 db에 등록
         User user = User.builder()

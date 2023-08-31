@@ -4,7 +4,7 @@ public class Constants {
 
     public enum ExceptionType {
 
-        PRODUCT("Product"), SIGN("Sign"), SHORT_URL("ShortUrl");
+        AUTHENTICATION("Authentication");
 
         private String exceptionType;
 
@@ -18,7 +18,7 @@ public class Constants {
 
         @Override
         public String toString() {
-            return getExceptionType() + " Exception. ";
+            return getExceptionType() + "Exception. ";
         }
 
     }
