@@ -1,0 +1,15 @@
+# Use root/example as user/password credentials
+version: '3.3'
+
+services:
+  db:
+    image: mariadb:11.0.3 # mariadb 11 버전 이미지 사용
+    container_name: security-db-container # container 이름 설정
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root # container 생성 후 root의 비밀번호를 저장한 파일을 설정함으로써 root 비밀번호 설정
+      MARIADB_DATABASE: springboot_security
+      MARIADB_USER: testuser
+      MARIADB_PASSWORD: testuser
+    ports:
+      - 3307:3306 # docker engine 에게 각 container에게 포트를 수동으로 설정하게 해줍니다.

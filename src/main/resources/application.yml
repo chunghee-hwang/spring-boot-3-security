@@ -1,0 +1,29 @@
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3307/springboot_security
+    username: testuser
+    password: testuser
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    root: info
+    web: info
+    sql: error # error: Display when error occur
+    org.hibernate: error
+    org.springframework: error
+    com.chung.security.demo: info
+
+security:
+  secret:
+    key: vodZHjPmI9sWupUDFvNrzlmal60L7I1vdc4MpNC4S0hFdgtXBkndMpbkCBUURaWcL2kvfdKXUkKeSW87qUYwbnOoFqf63MC6w264OKstT0GzS1oUZS6Uk1ify57FX5VW8yLSsX5nqxeRwR2UAVfRYH1M6SgfIjvpVI+5gNRxrt75iQ1pwlVaRCJ0Gu2/Fs1OAWWGsKH8fHK7l4Lj2YOZmY40gEtIH+o+FIzF3Gs07KxTmZR8oT0oaXN4REgQ9oLGDuwFlRjIQoGYyqxka+kmDd0yAw2AOHX2/bGE2iRfZd8+51W2CDM/cIWR/i3LRyhaR+DL8Q/uPZHMvv4ArZWOEH/R+DWiHK0ci7JykoYgzVQ=
+  jwt:
+    expired_after_ms: 86400000 # 24 hours
