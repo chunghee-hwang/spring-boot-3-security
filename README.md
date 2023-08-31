@@ -1,7 +1,9 @@
 # Spring Boot 3 + Spring Security 예제
 
-## 참고 영상
-https://www.youtube.com/watch?v=KxqlJblhzfI
+## 출처 및 참고한 부분
+- 가이드 영상: https://www.youtube.com/watch?v=KxqlJblhzfI
+- 원본 코드: https://github.com/ali-bouali/spring-boot-3-jwt-security
+- 현 시점에서 Spring Security 버전이 달라져서 폴더 구조 및 코드가 원본과 살짝 다릅니다.
 
 ## 사전 설정
 1. 이 레포지토리 clone
@@ -86,5 +88,6 @@ https://www.youtube.com/watch?v=KxqlJblhzfI
          }
          ```
 4. 인증이 필요한 API 호출 시도
+![스크린샷 2023-09-01 오전 2 37 17](https://github.com/chunghee-hwang/spring-boot-3-security/assets/20486811/1b5c388c-3a10-4afe-aae7-a2db2d63232e)
 
 
