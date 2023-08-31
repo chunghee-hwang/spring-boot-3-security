@@ -1,4 +1,4 @@
-package com.chung.security.demo.common.exception;
+package com.chung.security.demo.dto;
 
 import lombok.Builder;
 import lombok.Data;

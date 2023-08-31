@@ -1,19 +1,19 @@
 package com.chung.security.demo.common.exception;
 
+import com.chung.security.demo.dto.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class CustomExceptionHandler {
+public class ExceptionHandler {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(CustomExceptionHandler.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(ExceptionHandler.class);
 
-    @ExceptionHandler(value = Exception.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = Exception.class)
     public ResponseEntity<ErrorResponse> exceptionHandler(Exception e) {
         HttpHeaders responseHeaders = new HttpHeaders();
         HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
@@ -24,7 +24,7 @@ public class CustomExceptionHandler {
                 .build(), responseHeaders, httpStatus.value());
     }
 
-    @ExceptionHandler(value = CustomException.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(value = CustomException.class)
     public ResponseEntity<ErrorResponse> customExceptionHandler(CustomException e) {
         HttpHeaders responseHeaders = new HttpHeaders();
         LOGGER.error("Advice 내 customExceptionHandler 호출, {}, {}", e.getCause(), e.getMessage());
